@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            color: Brown;
+            transition: transform 0.5s;
+        }
+        h1 {
+            color: rosybrown;
+            transition: transform 0.5s;
+        }
+        body {
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>hello world</h1>
+    <h1>HNG Internship is After My Life: <span><a href="https://hng.tech" target="_blank">Check Them Out</a></span></h1>
+    <h2>Name: Okafor Ifeanyi</h2>
+    <h2>UserName: Okafor Ifeanyi</h2>
+    <h2>Email: ifeanyi.okafor.bio@gmail.com</h2>
+
+    <script>
+        // Function to change background color on header click
+        function changeBackgroundColor() {
+            const colors = ["#FFC0CB", "#87CEFA", "#98FB98", "#FFD700", "#FF69B4"];
+            document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Function to animate headers on load
+        function animateHeaders() {
+            const headers = document.querySelectorAll('h1, h2');
+            headers.forEach((header, index) => {
+                setTimeout(() => {
+                    header.style.transform = "scale(1.2)";
+                    setTimeout(() => {
+                        header.style.transform = "scale(1)";
+                    }, 500);
+                }, index * 300);
+            });
+        }
+
+        // Adding event listeners to headers
+        document.querySelectorAll('h1, h2').forEach(header => {
+            header.addEventListener('click', changeBackgroundColor);
+        });
+
+        // Run the animation on page load
+        window.onload = animateHeaders;
+    </script>
+</body>
+</html>
